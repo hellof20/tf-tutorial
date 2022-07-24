@@ -1,9 +1,14 @@
+variable "access_token" {
+    type = string
+}
+
 variable "project" {
     type = string
 }
 
 provider "google" {
   project = var.project
+  access_token = var.access_token
   region  = "us-central1"
   zone    = "us-central1-c"
 }
