@@ -6,6 +6,18 @@ variable "project" {
     type = string
 }
 
+resource "random_string" "vm-name" {
+  length  = 12
+  upper   = false
+  number  = false
+  lower   = true
+  special = false
+}
+
+locals {
+  vm-name = "${random_string.vm-name.result}-vm"
+}
+
 provider "google" {
   project = var.project
   access_token = var.access_token
@@ -14,7 +26,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "default" {
-  name         = "flask-vm"
+  name         = local.vm-name
   machine_type = "f1-micro"
   tags         = ["ssh"]
 
