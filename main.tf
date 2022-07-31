@@ -9,7 +9,7 @@ variable "project" {
 resource "random_string" "vm-name" {
   length  = 12
   upper   = false
-  number  = false
+  numeric  = false
   lower   = true
   special = false
 }
