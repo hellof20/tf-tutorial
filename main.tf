@@ -2,7 +2,7 @@ variable "access_token" {
     type = string
 }
 
-variable "project" {
+variable "project_id" {
     type = string
 }
 
@@ -19,7 +19,7 @@ locals {
 }
 
 provider "google" {
-  project = var.project
+  project = var.project_id
   access_token = var.access_token
   region  = "us-central1"
   zone    = "us-central1-c"
