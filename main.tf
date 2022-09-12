@@ -39,6 +39,7 @@ resource "google_project_service" "compute" {
 }
 
 resource "google_compute_instance" "default" {
+  depends_on = [google_project_service.compute]
   name         = local.vm-name
   machine_type = "f1-micro"
   tags         = ["ssh"]
