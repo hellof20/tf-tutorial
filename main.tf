@@ -29,6 +29,15 @@ provider "google" {
   zone    = "us-central1-c"
 }
 
+resource "google_project_service" "compute" {
+  service = "compute.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+  disable_dependent_services = true
+}
+
 resource "google_compute_instance" "default" {
   name         = local.vm-name
   machine_type = "f1-micro"
