@@ -14,6 +14,10 @@ variable "vm_name" {
     type = string
 }
 
+variable "zone" {
+    type = string
+}
+
 # resource "random_string" "vm-name" {
 #   length  = 12
 #   upper   = false
@@ -48,6 +52,7 @@ resource "google_compute_instance" "default" {
 #   name         = local.vm-name
   name         = var.vm_name
   machine_type = "f1-micro"
+  zone = var.zone
   tags         = ["ssh"]
 
   metadata = {
