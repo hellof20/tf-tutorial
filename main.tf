@@ -10,17 +10,21 @@ variable "network" {
     type = string
 }
 
-resource "random_string" "vm-name" {
-  length  = 12
-  upper   = false
-  numeric  = false
-  lower   = true
-  special = false
+variable "vm_name" {
+    type = string
 }
 
-locals {
-  vm-name = "${random_string.vm-name.result}-vm"
-}
+# resource "random_string" "vm-name" {
+#   length  = 12
+#   upper   = false
+#   numeric  = false
+#   lower   = true
+#   special = false
+# }
+
+# locals {
+#   vm-name = "${random_string.vm-name.result}-vm"
+# }
 
 provider "google" {
   project = var.project_id
@@ -40,7 +44,8 @@ resource "google_project_service" "compute" {
 
 resource "google_compute_instance" "default" {
   depends_on = [google_project_service.compute]
-  name         = local.vm-name
+#   name         = local.vm-name
+  name         = var.vm_name
   machine_type = "f1-micro"
   tags         = ["ssh"]
 
