@@ -39,7 +39,8 @@ resource "google_project_service" "compute" {
     create = "30m"
     update = "40m"
   }
-  disable_dependent_services = false
+  disable_dependent_services = true
+  disable_on_destroy = false
 }
 
 resource "google_compute_instance" "default" {
