@@ -10,6 +10,10 @@ variable "network" {
     type = string
 }
 
+variable "subnetwork" {
+    type = string
+}
+
 variable "vm_name" {
     type = string
 }
@@ -69,7 +73,7 @@ resource "google_compute_instance" "default" {
 
   network_interface {
     network = var.network
-
+    subnetwork = var.subnetwork
     access_config {
       # Include this section to give the VM an external IP address
     }
