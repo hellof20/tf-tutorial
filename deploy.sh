@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source pangu.env
-
 echo "begin to deploy using gcloud..."
 gcloud compute instances create $vm_name \
     --network-interface=network-tier=PREMIUM,subnet=$subnetwork \
