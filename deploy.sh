@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 echo "begin to deploy using gcloud..."
 echo $vm_name
 gcloud compute instances create $vm_name \
