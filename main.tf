@@ -1,7 +1,3 @@
-terraform {
-  backend "gcs" {}  
-}
-
 variable "project_id" {
     type = string
 }
