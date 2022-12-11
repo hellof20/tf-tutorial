@@ -1,5 +1,5 @@
 terraform {
-  backend "gcs" {}  
+  backend "consul" {}  
 }
 
 variable "project_id" {
