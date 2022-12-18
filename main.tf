@@ -1,7 +1,3 @@
-terraform {
-  backend "consul" {}  
-}
-
 variable "project_id" {
     type = string
 }
